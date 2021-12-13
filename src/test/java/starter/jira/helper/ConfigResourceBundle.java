@@ -10,10 +10,10 @@ public class ConfigResourceBundle {
 
     private ConfigResourceBundle(String language) {
         Locale locale;
-        if ("vi".equals(language)) {
-            locale = new Locale("vi", "VI");
-        } else {
+        if ("en".equals(language)) {
             locale = Locale.ENGLISH;
+        } else {
+            locale = new Locale("vi", "VI") ;
         }
         resourceConfig = ResourceBundle.getBundle("language", locale);
     }

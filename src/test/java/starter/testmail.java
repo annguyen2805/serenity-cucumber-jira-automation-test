@@ -1,15 +1,24 @@
 package starter;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import static starter.jira.helper.ConfigResourceBundle.CONFIG_RESOURCE;
 
 public class testmail {
 
 
     public static void main(String[] args) {
-        List<String> a = new ArrayList<String>();
-        a.add("@BOOK-1436");
-        String b = a.get(0).substring(1,a.get(0).length());
-        System.out.println(b);
+        System.out.println(System.getProperty("language"));
+        System.out.println(System.getenv("language"));
+        System.out.println(CONFIG_RESOURCE.getValue("hello"));
+    }
+    @Test
+    public void tesst() {
+        System.out.println(System.getProperty("language"));
+        System.out.println(CONFIG_RESOURCE.getValue("hello"));
+
     }
 }

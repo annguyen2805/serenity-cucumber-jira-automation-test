@@ -1,13 +1,9 @@
 package starter.stepdefinitions;
 
-import io.cucumber.java.Before;
-import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.actors.OnStage;
-import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.questions.Text;
 import starter.navigation.NavigateTo;
@@ -19,6 +15,7 @@ public class SearchStepDefinitions {
     @Given("{actor} is researching things on the internet")
     public void researchingThings(Actor actor) {
         actor.wasAbleTo(NavigateTo.theWikipediaHomePage());
+        System.out.println("Property Language: " + System.getProperty("language"));
     }
 
     @When("{actor} looks up {string}")
@@ -33,7 +30,7 @@ public class SearchStepDefinitions {
         actor.attemptsTo(
                 Ensure.that(WikipediaArticle.HEADING).hasText(term)
         );
-        String text=  Text.of(WikipediaArticle.HEADING).asString().answeredBy(actor).trim();
-        System.out.println("---------------"+text+"----------------------");
+        String text = Text.of(WikipediaArticle.HEADING).asString().answeredBy(actor).trim();
+        System.out.println("---------------" + text + "----------------------");
     }
 }
